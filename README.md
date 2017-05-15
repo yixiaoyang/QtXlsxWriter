@@ -1,3 +1,5 @@
+魔改QtXlsx使其能够在Qt4嵌入式平台使用。
+
 Documentation: http://qtxlsx.debao.me
 
 QtXlsx is a library that can read and write Excel files. It doesn't require Microsoft Excel and can be used in any platform that Qt5 supported.
