@@ -40,6 +40,7 @@
 #include "xlsxglobal.h"
 #include <QScopedPointer>
 #include <QStringList>
+
 class QZipReader;
 class QIODevice;
 

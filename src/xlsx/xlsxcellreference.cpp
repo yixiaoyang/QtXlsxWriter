@@ -25,7 +25,9 @@
 #include "xlsxcellreference.h"
 #include <QStringList>
 #include <QMap>
+#if QT_VERSION > 0x050000
 #include <QRegularExpression>
+#endif
 
 QT_BEGIN_NAMESPACE_XLSX
 
@@ -119,6 +121,15 @@ CellReference::CellReference(const char *cell)
 void CellReference::init(const QString &cell_str)
 {
     static QRegularExpression re(QStringLiteral("^\\$?([A-Z]{1,3})\\$?(\\d+)$"));
+#if QT_VERSION < 0x050000
+    int idx = re.indexIn(cell_str);
+    if(idx > -1){
+        const QString col_str = re.cap(1);
+        const QString row_str = re.cap(2);
+        _row = row_str.toInt();
+        _column = col_from_name(col_str);
+    }
+#else
     QRegularExpressionMatch match = re.match(cell_str);
     if (match.hasMatch()) {
         const QString col_str = match.captured(1);
@@ -126,6 +137,7 @@ void CellReference::init(const QString &cell_str)
         _row = row_str.toInt();
         _column = col_from_name(col_str);
     }
+#endif
 }
 
 /*!

@@ -27,7 +27,6 @@
 
 #include <QString>
 #include <QPoint>
-#include <QRegularExpression>
 #include <QMap>
 #include <QStringList>
 #include <QColor>

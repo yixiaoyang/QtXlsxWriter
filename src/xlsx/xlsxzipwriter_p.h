@@ -37,6 +37,9 @@
 //
 
 #include <QString>
+#include "private/qzipreader_p.h"
+#include "private/qzipwriter_p.h"
+
 class QIODevice;
 class QZipWriter;
 

@@ -25,6 +25,7 @@
 #ifndef XLSXGLOBAL_H
 #define XLSXGLOBAL_H
 #include <QtGlobal>
+#include <QRegExp>
 
 #define QT_BEGIN_NAMESPACE_XLSX namespace QXlsx {
 #define QT_END_NAMESPACE_XLSX }
@@ -45,5 +46,16 @@
 #else
 #  define XLSX_AUTOTEST_EXPORT
 #endif
+
+#ifndef QStringLiteral
+#define QStringLiteral QString
+#endif
+
+#ifndef QRegularExpression
+#define QRegularExpression  QRegExp
+#endif
+
+#define USE_QZIP_WRITER  (1)
+
 
 #endif // XLSXGLOBAL_H
